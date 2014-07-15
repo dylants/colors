@@ -11,8 +11,8 @@
 <body>
     <header></header>
 
-    <section id="main" class="container">
-        <h1>Colors</h1>
+    <section id="main" class="container" ng-controller="ColorsCtrl">
+        <h1 ng-bind-template="{{heading}}"></h1>
     </section>
 
     <footer></footer>
@@ -20,6 +20,8 @@
     <script src="/public/bower_components/angular/angular.js"></script>
     <script src="/public/bower_components/angular-route/angular-route.js"></script>
     <script src="/public/js/app.js"></script>
+    <script src="/public/js/services/letters-to-colors-service.js"></script>
+    <script src="/public/js/controllers/colors-ctrl.js"></script>
 </body>
 
 </html>
