@@ -1,0 +1,25 @@
+{
+    "name": "colors",
+    "description": "Replaces the text entered with colors",
+    "version": "0.0.0",
+    "private": true,
+    "author": {
+        "name": "Dylan Smith"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dylants/colors.git"
+    },
+    "scripts": {
+        "start": "nodemon app.js"
+    },
+    "dependencies": {
+        "body-parser": "^1.4.3",
+        "consolidate": "^0.10.0",
+        "express": "^4.6.1",
+        "underscore": "^1.6.0"
+    },
+    "devDependencies": {
+        "nodemon": "^1.2.1"
+    }
+}
