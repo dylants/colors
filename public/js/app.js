@@ -7,8 +7,8 @@
 angular.module("colorsApp", ["ngRoute", "colorsApp.services"]);
 
 // this services module contains all the services for the application
-// (this module has no dependencies)
-angular.module("colorsApp.services", []);
+// the dependencies are listed in the second argument
+angular.module("colorsApp.services", ["ngResource"]);
 
 
 // declare the routes
