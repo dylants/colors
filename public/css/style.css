@@ -1,5 +1,5 @@
 h1 {
-    font-size: 24px;
+    font-size: 1.5em;
     text-align: center;
 }
 p {
@@ -7,4 +7,13 @@ p {
 }
 .button-row {
     text-align: center;
+}
+.color {
+    min-width: 1em;
+    min-height: 1em;
+    display: inline-block;
+}
+
+#main {
+    padding-bottom: 1em;
 }
