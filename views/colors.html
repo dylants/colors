@@ -6,18 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Colors</title>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/public/css/style.css" rel="stylesheet" type="text/css">
 </head>
 
+<!-- The Angular "colorsApp" module will control this element -->
 <body ng-app="colorsApp">
     <header></header>
 
-    <section id="main" class="container" ng-view>
-    </section>
+    <!-- Angular controller will have control over this element (because of ng-view) -->
+    <section id="main" class="container" ng-view></section>
 
     <footer></footer>
 
+    <!-- Load up Angular -->
     <script src="/public/bower_components/angular/angular.js"></script>
     <script src="/public/bower_components/angular-route/angular-route.js"></script>
+    <!-- Load up our scripts -->
     <script src="/public/js/app.js"></script>
     <script src="/public/js/services/letters-to-colors-service.js"></script>
     <script src="/public/js/controllers/colors-ctrl.js"></script>
