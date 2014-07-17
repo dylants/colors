@@ -1,7 +1,7 @@
 <h1>Colors</h1>
 
 <div class="row">
-    <p class="col-md-6 col-md-offset-3">The text that's entered below will be tranformed, character by character, into a set of colors.  These colors will be displayed below the text when transformed.</p>
+    <p class="col-md-6 col-md-offset-3">The text that's entered below will be transformed, character by character, into a set of colors.  These colors will be displayed below the text when transformed.</p>
     <form name="transformForm" role="form" class="col-md-6 col-md-offset-3">
         <!-- The 'has-error' and 'has-success' allows us to visually inform -->
         <!-- the user when the form has errors vs. it's correctly filled out -->
@@ -22,7 +22,7 @@
 <div class="row" ng-show="showColors()">
     <hr class="col-md-6 col-md-offset-3">
     <p class="col-md-6 col-md-offset-3">Text transformed to color:</p>
-    <div class="col-md-6 col-md-offset-3">
-        <div ng-repeat="color in colors" class="color" style="background-color: {{color}}"></div>
+    <div id="colors" class="col-md-6 col-md-offset-3">
+        <div ng-repeat="color in colors track by $index" class="color" style="background-color: {{color}}"></div>
     </div>
 </div>

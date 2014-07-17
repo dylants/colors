@@ -6,6 +6,7 @@ angular.module("colorsApp").controller("ColorsCtrl", ["$scope", "LettersToColors
         // default the colors to an empty array
         $scope.colors = [];
 
+        // shows the colors if there are colors to show
         $scope.showColors = function() {
             if ($scope.colors && $scope.colors.length > 0) {
                 return true;
@@ -20,7 +21,7 @@ angular.module("colorsApp").controller("ColorsCtrl", ["$scope", "LettersToColors
 
             // call the API to generate the colors from our text
             lettersToColorsService.generateColors({
-                textToTransform: $scope.textToTransform
+                text: $scope.textToTransform
             }, function(resource, headers) {
                 // this block is called on a successful response
 
