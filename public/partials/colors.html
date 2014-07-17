@@ -19,10 +19,13 @@
     </form>
 </div>
 
+<!-- This div is only shown if colors are available (via the ng-show) -->
 <div class="row" ng-show="showColors()">
     <hr class="col-md-6 col-md-offset-3">
     <p class="col-md-6 col-md-offset-3">Text transformed to color:</p>
     <div id="colors" class="col-md-6 col-md-offset-3">
+        <!-- here we iterate over the colors, and for each one, create -->
+        <!-- a single div which sets the background color inline to the color -->
         <div ng-repeat="color in colors track by $index" class="color" style="background-color: {{color}}"></div>
     </div>
 </div>

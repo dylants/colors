@@ -5,10 +5,10 @@ module.exports = function(app) {
     app.post("/api/letters-to-colors", function(req, res) {
         var text, colors;
 
-        // pull the text from the request body
+        // pull the user supplied text from the request body
         text = req.body.text;
 
-        // generate the colors passing in the text
+        // generate the colors, passing in the text
         colors = generateColors(text);
 
         // respond to the client with the generated colors
@@ -38,14 +38,15 @@ module.exports = function(app) {
         // convert the character to an ascii value
         color = character.charCodeAt(0);
 
-        // increase the distance between characters to create a wider spectrum
+        // increase the distance between each character
+        // to create a wider color spectrum
         color = color * 1000;
 
-        // bound that value to 0 - 360 (the hsl color space)
+        // bound that value to 0 - 360 (the HSL color space)
         color = color % 360;
 
         // return an HSL representation of the color,
-        // using default 100% saturation and 50% lightness
+        // using 100% saturation and 50% lightness
         return "hsl(" + color + ", 100%, 50%);";
     }
 

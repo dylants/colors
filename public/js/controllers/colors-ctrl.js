@@ -15,21 +15,23 @@ angular.module("colorsApp").controller("ColorsCtrl", ["$scope", "LettersToColors
             }
         };
 
+        // called when the user clicks "Transform"
         $scope.transform = function($event) {
             // unfocus the button after it was clicked
             $event.currentTarget.blur();
 
-            // call the API to generate the colors from our text
+            // call the API to generate the colors, which is a POST
+            // request so we'll pass in the text within the request body
             lettersToColorsService.generateColors({
                 text: $scope.textToTransform
             }, function(resource, headers) {
-                // this block is called on a successful response
+                // -- this block is called on a successful response --
 
                 // pull the colors from the response and place it
                 // in our scope, so it can be displayed on the page
                 $scope.colors = resource.colors;
             }, function(response) {
-                // this block is called when an error occurs
+                // -- this block is called when the API returns an error --
                 
                 console.error("Error occurred processing letters-to-colors API");
                 console.error(response);
