@@ -2,18 +2,21 @@
 
 Transforms text to colors, like magic.
 
-## Documentation ##
-
-### Overview ###
+## Overview ##
 
 This application contains a single page which has a form that accepts text input.
 When submitted, each character within the text is transformed into a color, and
-the resulting set of colors is displayed below the form.
+the resulting set of colors is displayed below the form. A sample screen shot
+is shown below:
 
-The project uses [Node.js](http://nodejs.org/) and [Express](http://expressjs.com/)
+<img src="https://cloud.githubusercontent.com/assets/1596740/3622216/7994a23e-0e2c-11e4-8d30-b06dc86dfa99.png">
+
+Though the concept of the project is simple, it's meant to illustrate a basic
+example of using [Node.js](http://nodejs.org/) and [Express](http://expressjs.com/)
 on the server side, and [AngularJS](https://angularjs.org/) on the client side.
+The original idea came from a MakerSquare project.
 
-### Getting Started ###
+## Getting Started ##
 
 This is a [Node.js](http://nodejs.org/) project, so before cloning the repository
 make sure node is installed. Once cloned, install the node dependencies by
@@ -42,9 +45,9 @@ file changes, and automatically restart the application.
 By default the application will run on port 3000, so once it's started, browse
 to `http://localhost:3000/` to view the application.
 
-### Project Structure ###
+## Project Structure ##
 
-#### Server Side ####
+### Server Side ###
 
 On the server side, the `app.js` file is the starting point. This file sets up
 the Express server to properly render the initial page, along with loading
@@ -65,7 +68,7 @@ node packages (dependencies) for this project. This is not committed to source
 control since it's generated during setup. Dependencies, along with general
 project information is contained within the `package.json` file.
 
-#### Client Side ####
+### Client Side ###
 
 The `public` directory contains all client side code. Similarly to the server
 side of things, the client side has dependencies which are installed to
