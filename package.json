@@ -11,7 +11,9 @@
         "url": "https://github.com/dylants/colors.git"
     },
     "scripts": {
-        "start": "nodemon app.js"
+        "start": "nodemon app.js",
+        "test": "jasmine-node --test-dir test/server --matchall --color --verbose",
+        "test-watch": "jasmine-node --test-dir test/server --matchall --color --autotest --watch controllers"
     },
     "dependencies": {
         "body-parser": "^1.4.3",
@@ -24,6 +26,7 @@
         "grunt": "^0.4.5",
         "grunt-contrib-jshint": "^0.10.0",
         "grunt-jasmine-node": "^0.2.1",
-        "grunt-contrib-watch": "^0.6.1"
+        "grunt-contrib-watch": "^0.6.1",
+        "jasmine-node": "^1.14.5"
     }
 }
