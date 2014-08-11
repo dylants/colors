@@ -3,6 +3,10 @@
 module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON("package.json"),
+        watch: {
+            files: ["**/*", "!**/node_modules/**", "!**public/bower_components/**"],
+            tasks: ["default"],
+        },
         jshint: {
             files: [
                 "**/*.js"
@@ -19,13 +23,16 @@ module.exports = function(grunt) {
         },
         jasmine_node: {
             options: {
+                forceExit: true,
                 matchall: true,
-                showColors: true
+                showColors: true,
+                includeStackTrace: true
             },
             all: ["test/server"]
         }
     });
 
+    grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks("grunt-contrib-jshint");
     grunt.loadNpmTasks("grunt-jasmine-node");
 
