@@ -8,4 +8,12 @@ describe("letters-to-colors controller", function() {
         expect(lettersToColors).toBeDefined();
     });
 
+    describe("generateColors function", function() {
+
+        it("should exist", function() {
+            expect(lettersToColors.generateColors).toBeDefined();
+        });
+
+    });
+
 });
