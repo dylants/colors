@@ -13,7 +13,7 @@
     "scripts": {
         "start": "nodemon app.js",
         "test": "jasmine-node --test-dir test/server --matchall --color --verbose",
-        "test-watch": "jasmine-node --test-dir test/server --matchall --color --autotest --watch controllers"
+        "test-watch": "jasmine-node --test-dir test/server --matchall --color --autotest --watch controllers lib"
     },
     "dependencies": {
         "body-parser": "^1.4.3",
