@@ -93,3 +93,11 @@ help in understanding the specifics.
 Finally, any HTML partials are defined in the `public/partials` directory
 (these partials are used by the controllers), and CSS is in the `public/css`
 directory.
+
+## Tests ##
+
+Within this project exists both server side tests and client side tests. The
+server side tests use [Jasmine](http://jasmine.github.io/) and the client
+side tests use Jasmine as well, but run the tests within
+[Karma](https://github.com/karma-runner/karma) for unit tests and
+[Protractor](https://github.com/angular/protractor) for the end to end tests.
