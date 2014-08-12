@@ -5,7 +5,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON("package.json"),
         watch: {
             files: ["**/*", "!**/node_modules/**", "!**public/bower_components/**"],
-            tasks: ["default"],
+            tasks: ["watch-tasks"],
         },
         jshint: {
             files: [
@@ -29,12 +29,47 @@ module.exports = function(grunt) {
                 includeStackTrace: true
             },
             all: ["test/server"]
+        },
+        karma: {
+            unit: {
+                configFile: "test/client/karma.conf.js",
+                background: true
+            },
+            singleRun: {
+                configFile: "test/client/karma.conf.js",
+                singleRun: true
+            },
+            continuous: {
+                configFile: "test/client/karma.conf.js",
+                singleRun: true,
+                reporters: "dots",
+                browsers: ["Firefox"]
+            }
+        },
+        protractor: {
+            options: {
+                configFile: "test/client/protractor-conf.js",
+                keepAlive: true
+            },
+            continuous: {
+                options: {
+                    configFile: "test/client/protractor-conf.js",
+                    keepAlive: false
+                }
+            }
         }
     });
 
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks("grunt-contrib-jshint");
     grunt.loadNpmTasks("grunt-jasmine-node");
+    grunt.loadNpmTasks("grunt-karma");
+    grunt.loadNpmTasks("grunt-protractor-runner");
 
-    grunt.registerTask("default", ["jshint", "jasmine_node"]);
+    grunt.registerTask("default", ["jshint", "jasmine_node", "karma:singleRun", "protractor"]);
+    grunt.registerTask("ci", ["jshint", "jasmine_node", "karma:continuous", "protractor:continuous"]);
+
+    // running `grunt w` will startup karma and run the watch tasks
+    grunt.registerTask("w", ["karma:unit:start", "watch"]);
+    grunt.registerTask("watch-tasks", ["jshint", "jasmine_node", "karma:unit:run", "protractor"]);
 };
