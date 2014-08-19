@@ -96,8 +96,79 @@ directory.
 
 ## Tests ##
 
-Within this project exists both server side tests and client side tests. The
-server side tests use [Jasmine](http://jasmine.github.io/) and the client
-side tests use Jasmine as well, but run the tests within
-[Karma](https://github.com/karma-runner/karma) for unit tests and
-[Protractor](https://github.com/angular/protractor) for the end to end tests.
+Within this project exists both server side tests and client side tests. Both
+the server side and client side tests use [Jasmine](http://jasmine.github.io/),
+but they use different frameworks to run the tests.
+
+### Setup ###
+
+The `devDependencies` within the `package.json` file contain the test
+dependencies. These will be installed when running `npm install` which should
+be done as part of the project setup.
+
+In addition to the dependencies listed in the `package.json`, two more
+setup steps must be executed to take advantage of all tests.
+[Grunt](http://gruntjs.com/) is used to run both server side and client side
+tests at once. If the command line grunt executable is not already installed
+on the system, execute the following command:
+
+`npm install -g grunt-cli`
+
+Protractor uses the Selenium server to interact with the browser. To setup
+the webdriver, execute the following command:
+
+`npm run update-webdriver`
+
+Note that both of these commands only need to be executed once per setup.
+
+In addition to the above steps, Protractor expects the web application to
+be running when it executes the tests. So prior to running the tests, start
+the web app by executing the following command:
+
+`npm start`
+
+### Run Tests ###
+
+[Grunt](http://gruntjs.com/) is used to execute the tests. There are multiple
+tasks available to run the tests:
+
+*   `grunt` - The default task executes jshint, Jasmine for server side tests,
+Karma and Protractor for client side tests. This task is meant to run all the
+tests just once.
+*   `grunt w` - This task runs the same set of commands as the default task
+but does so in a "watch" mode. If any files change, the set of tasks will
+be (re)executed.
+*   `grunt ci` - A continuous integration task which runs the same set of
+commands as the default task, but does so in a way suitable for a continuous
+integration environment (such as Travis-CI).
+
+### Tests Overview ###
+
+#### Server Side ####
+
+All tests for the server side components are contained within the `test/server`
+directory. These tests use [Jasmine](http://jasmine.github.io/), but more
+specifically, [jasmine-node](https://github.com/mhevery/jasmine-node) which
+provides Jasmine tests within the Node environment. The tests are setup in
+directories which mirror the source code they are testing.
+
+The tests utilize Jasmine's 1.3 release, for more information on the API for
+Jasmine 1.3, please 
+[consult the documentation](http://jasmine.github.io/1.3/introduction.html).
+
+#### Client Side ####
+
+The client side tests are contained within the `test/client` directory. The
+tests are broken down into two categories:
+
+*   Unit tests: These tests use [Karma](https://github.com/karma-runner/karma)
+to run [Jasmine](http://jasmine.github.io/) tests. These tests run within
+the browser, and currently are configured to run under Chrome and Firefox.
+These tests exist in directories which mirror the source code they are testing.
+*   End to end tests: These tests use
+[Protractor](https://github.com/angular/protractor) to run
+[Jasmine](http://jasmine.github.io/) tests. Protractor uses the
+[Selenium WebDriver](http://docs.seleniumhq.org/projects/webdriver/) to interact
+with the browser directly, navigating the pages of this application. The tests
+verify certain behavior as if the user was manually clicking around on the page.
+There is only one test which is meant to test this "Colors App".
